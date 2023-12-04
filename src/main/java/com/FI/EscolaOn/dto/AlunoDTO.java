@@ -1,9 +1,7 @@
 package com.FI.EscolaOn.dto;
 
-import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 @Data
 public class AlunoDTO {
@@ -19,5 +17,6 @@ public class AlunoDTO {
     private String fixo;
     private String email;
     private String senha;
+    private int idcurso;
 
 }
