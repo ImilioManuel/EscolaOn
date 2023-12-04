@@ -18,7 +18,9 @@ public class Aluno extends Pessoa implements Serializable {
 
     private double nota;
 
-
+    @ManyToOne
+    @JoinColumn(name = "id_curso")
+    private Curso curso;
 
     public Aluno() {
     }

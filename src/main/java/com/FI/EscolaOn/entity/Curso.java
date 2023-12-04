@@ -8,7 +8,8 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -23,7 +24,12 @@ public class Curso implements Serializable {
     private Integer id;
     private String curso;
     private int duracao;
+    private String descricao;
+    private LocalDateTime dataCadastro;
 
     @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL, orphanRemoval = true, fetch=FetchType.LAZY)
-    private ArrayList<Prova> listaProva = new ArrayList<>();
+    private List<Aluno> listaAlunos;
+
+    @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL, orphanRemoval = true, fetch=FetchType.LAZY)
+    private List<Prova> listaProva;
 }

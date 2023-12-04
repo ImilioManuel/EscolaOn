@@ -1,10 +1,7 @@
 package com.FI.EscolaOn.service;
 
 import com.FI.EscolaOn.Repositories.*;
-import com.FI.EscolaOn.entity.Aluno;
-import com.FI.EscolaOn.entity.Contacto;
-import com.FI.EscolaOn.entity.DataDeNascimento;
-import com.FI.EscolaOn.entity.Endereco;
+import com.FI.EscolaOn.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,4 +11,8 @@ import java.util.ArrayList;
 public class CursoService {
     @Autowired
     CursoRepository cursoRepository;
+
+    public Object save(Curso curso) {
+        return cursoRepository.save(curso);
+    }
 }

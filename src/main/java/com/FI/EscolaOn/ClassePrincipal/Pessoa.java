@@ -20,10 +20,10 @@ public abstract class Pessoa implements Serializable {
     @OneToOne
     @JoinColumn(name = "dataNascimento_id")
     private DataDeNascimento dataDeNascimento;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "contacto_id")
     private Contacto contacto;
     private char genero;
