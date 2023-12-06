@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class AlunoService {
@@ -19,5 +20,9 @@ public class AlunoService {
     AlunoRepository alunoRepository;
     public Object save(Aluno aluno) {
         return alunoRepository.save(aluno);
+    }
+
+    public List<Aluno> findAll() {
+        return alunoRepository.findAll();
     }
 }

@@ -26,10 +26,6 @@ public class Curso implements Serializable {
     private int duracao;
     private String descricao;
     private LocalDateTime dataCadastro;
-
-    @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL, orphanRemoval = true, fetch=FetchType.LAZY)
-    private List<Aluno> listaAlunos;
-
     @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL, orphanRemoval = true, fetch=FetchType.LAZY)
     private List<Prova> listaProva;
 }

@@ -17,6 +17,5 @@ public class AlunoDTO {
     private String fixo;
     private String email;
     private String senha;
-    private int idcurso;
-
+    private Integer cursoId;
 }

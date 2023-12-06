@@ -15,13 +15,6 @@ import java.time.LocalDateTime;
 public class Aluno extends Pessoa implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
-
-    private double nota;
-
-    @ManyToOne
-    @JoinColumn(name = "id_curso")
-    private Curso curso;
-
     public Aluno() {
     }
     public Aluno(String nomeCompleto, DataDeNascimento dataDeNascimento, Endereco endereco, Contacto contacto, char genero, String senha, LocalDateTime dataCadastro) {

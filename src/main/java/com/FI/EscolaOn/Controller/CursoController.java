@@ -21,6 +21,7 @@ import java.util.Optional;
 public class CursoController {
     @Autowired
     CursoService cursoService;
+
     @PostMapping
     public ResponseEntity<Object> saveCurso(@RequestBody @Valid CursoDTO cursoDTO){
         var curso = new Curso();
@@ -34,34 +35,7 @@ public class CursoController {
         return ResponseEntity.status(HttpStatus.OK).body(cursoService.findAll());
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getOneParkingSpot(@PathVariable(value = "id") Integer id){
-        Optional<Curso> cursoOptional = cursoService.findById(id);
-        if (!cursoOptional.isPresent()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Curso not found.");
-        }
-        return ResponseEntity.status(HttpStatus.OK).body(cursoOptional.get());
+    public ResponseEntity<Object> getOneCurso(@PathVariable(value = "id") Integer id){
+        return ResponseEntity.status(HttpStatus.OK).body(cursoService.findById(id));
     }
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteParkingSpot(@PathVariable(value = "id") Integer id){
-        Optional<Curso> cursoOptional = cursoService.findById(id);
-        if (!cursoOptional.isPresent()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Curso not found.");
-        }
-        cursoService.delete(cursoOptional.get());
-        return ResponseEntity.status(HttpStatus.OK).body("Parking Spot deleted successfully.");
-    }
-    @PutMapping("/{id}")
-    public ResponseEntity<Object> updateCurso(@PathVariable(value = "id") Integer id,
-                                                    @RequestBody @Valid CursoDTO cursoDTO){
-        Optional<Curso> cursoOptional = cursoService.findById(id);
-        if (!cursoOptional.isPresent()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Curso not found.");
-        }
-        var curso = new Curso();
-        BeanUtils.copyProperties(cursoDTO, curso);
-        curso.setId(cursoOptional.get().getId());
-        curso.setDataCadastro(cursoOptional.get().getDataCadastro());
-        return ResponseEntity.status(HttpStatus.OK).body(cursoService.save(curso));
-    }
-
 }
